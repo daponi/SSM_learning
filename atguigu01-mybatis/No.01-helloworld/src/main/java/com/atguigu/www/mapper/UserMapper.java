@@ -2,6 +2,8 @@ package com.atguigu.www.mapper;
 
 import com.atguigu.www.pojo.User;
 
+import java.util.List;
+
 /**
 * @author daponi
 * @description 针对表【t_user】的数据库操作Mapper
@@ -11,6 +13,15 @@ import com.atguigu.www.pojo.User;
 public interface UserMapper {
 
     int insertUser();
+
+    int updateUser();
+
+    int deleteUser();
+
+    User getOneUser();
+
+    List<User> getAllUser();
+
 
     int deleteByPrimaryKey(Long id);
 
