@@ -9,7 +9,8 @@
     <packaging>pom</packaging>
     <version>1.0-SNAPSHOT</version>
     <modules>
-        <module>No.01-helloworld</module>
+        <module>N01-helloworld</module>
+        <module>N02-parameter</module>
     </modules>
 
     <properties>

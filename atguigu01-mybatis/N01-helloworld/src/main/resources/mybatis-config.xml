@@ -66,6 +66,12 @@
             2、mapper接口要和映射文件的名字一致
     -->
     <mappers>
-        <mapper resource="mapper/UserMapper.xml"/>
+        <!--<mapper resource="mapper/UserMapper.xml"/>-->
+        <!--
+        以包为单位引入映射文，要求：
+        1、mapper接口所在的包要和映射文件所在的包一致
+        2、mapper接口要和映射文件的名字一致
+        -->
+        <package name="com.atguigu.www.mapper"/>
     </mappers>
 </configuration>
