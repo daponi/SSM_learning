@@ -29,6 +29,13 @@
         delete from t_user
         where 
     </delete>
+
+    <insert id="insertUser">
+        insert into t_user
+        values (null,'ONE','123123','23','男','1239123@QQ.COM')
+    </insert>
+
+
     <insert id="insert">
         insert into t_user
         ( id,username,password

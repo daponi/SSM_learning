@@ -10,6 +10,8 @@ import com.atguigu.www.pojo.User;
 */
 public interface UserMapper {
 
+    int insertUser();
+
     int deleteByPrimaryKey(Long id);
 
     int insert(User record);
