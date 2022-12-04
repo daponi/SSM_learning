@@ -37,7 +37,7 @@ import java.util.Map;
  * 只需要通过#{}和${}访问map集合的键，就可以获取相对应的值,一定要注意${}的单引号问题
  */
 @Slf4j
-public class TestParameter {
+public class ParameterTest {
 
     @Test
     public void testParameter(){

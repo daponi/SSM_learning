@@ -8,6 +8,7 @@
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
         <module name="N02-parameter" />
+        <module name="N03-resultMap" />
         <module name="N01-helloworld" />
       </profile>
     </annotationProcessing>

@@ -17,9 +17,11 @@ import java.util.Map;
  * 否则会抛出异常TooManyResultsException
  *
  * 2.若sql语句查询的结果为1条时，此时可以使用实体类类型或list集合类型作为方法的返回值
+ *
+ * 3.根据用户id查询用户信息为map集合，map集合会以数据库里的字段名为键key，字段值为值value
  */
 @Slf4j
-public class TestSelectMapper {
+public class SelectMapperTest {
     static SqlSession sqlSession=null;
     static SelectMapper mapper=null;
 
