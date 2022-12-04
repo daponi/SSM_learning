@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.atguigu.mapper.SelectMapper">
+
+    <select id="selectOneById" resultType="User">
+        select * from t_user where id=#{id}
+    </select>
+
+    <select id="selectAll" resultType="User">
+        select * from t_user
+    </select>
+
+    <select id="selectCount" resultType="integer">
+        select count(1) from t_user
+    </select>
+
+    <select id="selectOneByIdToMap" resultType="map">
+        select * from t_user where id =#{id}
+    </select>
+
+    <select id="selectAllUserToListMap" resultType="map">
+        select * from t_user
+    </select>
+
+    <select id="selectAllUserToMap" resultType="map">
+        select * from t_user
+    </select>
+
+
+</mapper>

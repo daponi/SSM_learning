@@ -38,7 +38,7 @@
                     UNPOOLDE：表示不使用数据库连接池
                     JNDI:表示使用上下文中的数据源-->
             <dataSource type="POOLED">
-                <property name="driver" value="${jdbc.driver}"/>
+                <property name="driver" value="${jdbc.Driver}"/>
                 <property name="url" value="${jdbc.url}"/>
                 <property name="username" value="${jdbc.username}"/>
                 <property name="password" value="${jdbc.password}"/>
