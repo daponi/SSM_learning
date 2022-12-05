@@ -1,28 +1,32 @@
 package com.atguigu.www.pojo;
 
+import lombok.*;
+
 import java.io.Serializable;
-import lombok.Data;
 
 /**
  * 
  * @TableName t_emp
  */
+
+@AllArgsConstructor
+@NoArgsConstructor
 @Data
 public class Emp implements Serializable {
     /**
      * id
      */
-    private Integer emp_id;
+    private Integer empId;
 
     /**
      * 员工姓名
      */
-    private String emp_name;
+    private String empName;
 
     /**
      * 部门id
      */
-    private Integer dept_id;
+    private Dept dept;
 
     /**
      * 员工年龄
@@ -34,5 +38,7 @@ public class Emp implements Serializable {
      */
     private String gender;
 
+
     private static final long serialVersionUID = 1L;
+
 }
