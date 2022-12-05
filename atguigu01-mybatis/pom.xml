@@ -12,6 +12,7 @@
         <module>N01-helloworld</module>
         <module>N02-parameter</module>
         <module>N03-resultMap</module>
+        <module>N04-dynamicSQL</module>
     </modules>
 
     <properties>
