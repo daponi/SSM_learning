@@ -1,4 +1,8 @@
-package www.pojo;
+package com.atguigu.www.pojo;
+
+import lombok.AllArgsConstructor;
+import lombok.Data;
+import lombok.NoArgsConstructor;
 
 import java.io.Serializable;
 
@@ -20,11 +24,6 @@ public class Emp implements Serializable {
      * 员工姓名
      */
     private String empName;
-
-    /**
-     * 部门id
-     */
-    private Dept dept;
 
     /**
      * 员工年龄

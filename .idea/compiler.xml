@@ -11,6 +11,7 @@
         <module name="N02-parameter" />
         <module name="N03-resultMap" />
         <module name="N01-helloworld" />
+        <module name="N05-cache" />
       </profile>
     </annotationProcessing>
   </component>

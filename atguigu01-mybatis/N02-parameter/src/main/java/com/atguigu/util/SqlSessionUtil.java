@@ -17,8 +17,8 @@ public class SqlSessionUtil {
         try {
             InputStream resourceAsStream = Resources.getResourceAsStream("mybatis-config.xml");
             SqlSessionFactoryBuilder sqlSessionFactoryBuilder = new SqlSessionFactoryBuilder();
-            SqlSessionFactory build = sqlSessionFactoryBuilder.build(resourceAsStream);
-            sqlsession = build.openSession(true); //自动commit
+            SqlSessionFactory factory = sqlSessionFactoryBuilder.build(resourceAsStream);
+            sqlsession = factory.openSession(true); //自动commit
 
         } catch (IOException e) {
             throw new RuntimeException(e);

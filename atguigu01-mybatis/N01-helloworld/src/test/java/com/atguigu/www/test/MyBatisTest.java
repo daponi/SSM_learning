@@ -31,10 +31,10 @@ public class MyBatisTest {
         SqlSessionFactoryBuilder sqlSessionFactoryBuilder = new SqlSessionFactoryBuilder();
 
         //3.获取sqlsessionFactory对象，工厂模式，通过核心配置文件所对应的字节输入流创建工厂类SqlSessionFactory，生产SqlSession对象
-        SqlSessionFactory build = sqlSessionFactoryBuilder.build(resourceAsStream);
+        SqlSessionFactory factory = sqlSessionFactoryBuilder.build(resourceAsStream);
 
         //4.获取sql的会话对象sqlSession,是myBatis提供的操作数据库对象，此时通过SqlSession对象所操作的sql都必须手动提交或回滚事务
-        SqlSession sqlSession = build.openSession();
+        SqlSession sqlSession = factory.openSession();
         // SqlSession sqlSession = build.openSession(true);//类似mysql每次提交后自动commit
 
         //5.获取userMapper的代理实现类对象，通过代理模式创建UserMapper接口的代理实现类对象
