@@ -13,7 +13,7 @@ buildNumber.properties
 *.class
 /.gradle/
 *.idea
-/.idea/
+#/.idea/
 /out/
 /logs/
 
