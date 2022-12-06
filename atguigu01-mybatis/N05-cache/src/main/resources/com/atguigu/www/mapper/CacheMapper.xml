@@ -4,6 +4,14 @@
         "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 
 <mapper namespace="com.atguigu.www.mapper.CacheMapper">
+    <!--二级缓存sqlSessionFactory-->
+    <cache type="org.mybatis.caches.ehcache.EhcacheCache"/>
+
+
+    <insert id="inertEmp">
+        insert into t_emp values(null,#{emp.empName},#{emp.age},#{emp.gender},null)
+    </insert>
+
     <select id="getEmpById" resultType="emp">
         select * from t_emp where emp_id = #{id}
     </select>

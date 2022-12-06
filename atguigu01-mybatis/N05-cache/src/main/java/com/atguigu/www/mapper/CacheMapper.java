@@ -4,5 +4,8 @@ import com.atguigu.www.pojo.Emp;
 import org.apache.ibatis.annotations.Param;
 
 public interface CacheMapper {
+
     Emp getEmpById(@Param("id")Integer id);
+
+    int inertEmp(@Param("emp") Emp emp);
 }

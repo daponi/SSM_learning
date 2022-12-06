@@ -12,6 +12,7 @@
         <module name="N03-resultMap" />
         <module name="N01-helloworld" />
         <module name="N05-cache" />
+        <module name="N06-myBatisGenerator" />
       </profile>
     </annotationProcessing>
   </component>

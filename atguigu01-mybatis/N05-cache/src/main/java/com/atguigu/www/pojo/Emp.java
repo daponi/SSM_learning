@@ -35,6 +35,7 @@ public class Emp implements Serializable {
      */
     private String gender;
 
+    private Integer deptId;
 
     private static final long serialVersionUID = 1L;
 

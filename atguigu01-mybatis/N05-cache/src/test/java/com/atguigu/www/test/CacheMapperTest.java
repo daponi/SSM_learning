@@ -4,10 +4,16 @@ import com.atguigu.www.mapper.CacheMapper;
 import com.atguigu.www.pojo.Emp;
 import com.atguigu.www.util.SqlSessionUtil;
 import lombok.extern.slf4j.Slf4j;
+import org.apache.ibatis.io.Resources;
 import org.apache.ibatis.session.SqlSession;
+import org.apache.ibatis.session.SqlSessionFactory;
+import org.apache.ibatis.session.SqlSessionFactoryBuilder;
 import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
+
+import java.io.IOException;
+import java.io.InputStream;
 
 
 /**
@@ -30,6 +36,8 @@ import org.junit.Test;
  * d>查询的数据所转换的实体类类型必须实现序列化的接口
  * 使二级缓存失效的情况：
  * 两次查询之间执行了任意的增删改，会使一级和二级缓存同时失效
+ *
+ * 整合第三方缓存EHCache，效果一样只是使用了第三方的缓存，日志打印和性能有所不同
  */
 
 @Slf4j
@@ -46,17 +54,36 @@ public class CacheMapperTest {
         sqlSession.close();
     }
 
+    /**
+     * mybatis一级缓存失效SqlSession
+     */
     @Test
     public void testGetEmpById(){
         Emp emp = mapper.getEmpById(20);
         Emp emp2 = mapper.getEmpById(20);
-        log.debug("{}",emp);
-        log.debug("{}",emp2);
+        log.debug("输出1：{}",emp);
+        mapper.inertEmp(new Emp(null,"红",22,"男",null));
+        log.debug("输出2：{}",emp2);
         SqlSession sqlSession1 = SqlSessionUtil.getSqlSession();
         CacheMapper mapper2 = sqlSession1.getMapper(CacheMapper.class);
+        // sqlSession1.clearCache();// 手动清除缓存
         Emp emp3 = mapper2.getEmpById(20);
         log.debug("{}",emp3);
+    }
 
-
+    /**
+     * 测试二级缓存SqlSessionFactory
+     */
+    @Test
+    public void testGetEmpByIdTwo() throws IOException {
+        InputStream inputStream = Resources.getResourceAsStream("mybatis-config.xml");
+        SqlSessionFactory factory = new SqlSessionFactoryBuilder().build(inputStream);
+        SqlSession session1 = factory.openSession(true);
+        SqlSession session2 = factory.openSession(true);
+        CacheMapper mapper1 = session1.getMapper(CacheMapper.class);
+        CacheMapper mapper2 = session2.getMapper(CacheMapper.class);
+        log.debug("输出1：{}",mapper1.getEmpById(24));
+        session1.close();
+        log.debug("输出2：{}",mapper2.getEmpById(24));
     }
 }

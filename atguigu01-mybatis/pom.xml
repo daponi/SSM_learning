@@ -14,6 +14,7 @@
         <module>N03-resultMap</module>
         <module>N04-dynamicSQL</module>
         <module>N05-cache</module>
+        <module>N06-myBatisGenerator</module>
     </modules>
 
     <properties>
