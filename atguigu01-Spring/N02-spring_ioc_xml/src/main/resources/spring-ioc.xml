@@ -1,6 +1,180 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <beans xmlns="http://www.springframework.org/schema/beans"
-       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
-    <bean id="studentOne" class="com.atguigu.www.pojo.Student"/>
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:util="http://www.springframework.org/schema/util"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd http://www.springframework.org/schema/util https://www.springframework.org/schema/util/spring-util.xsd">
+
+    <!--普通注入-->
+    <bean id="studentOne" class="com.atguigu.www.pojo.Student">
+    </bean>
+
+    <!--1.通过set注入-->
+    <bean id="studentTwo" class="com.atguigu.www.pojo.Student">
+        <!--
+    property：通过成员变量的set方法进行赋值，所以该DI是set注入
+    name：设置需要赋值的属性名（和set方法有关）
+    value：设置为属性所赋的值
+        -->
+        <property name="SId" value="1"/>
+        <property name="SName" value="zhangsan"/>
+        <property name="age"    value="22"/>
+        <property name="gender" value="男"/>
+        <property name="score" value="23.5"/>
+    </bean>
+
+    <!--1.构造器注入-->
+    <bean id="studentThree" class="com.atguigu.www.pojo.Student">
+        <constructor-arg value="2"/>
+        <constructor-arg value="lisi"/>
+        <constructor-arg value="男"/>
+        <!--<constructor-arg value="23" />-->
+        <constructor-arg value="23" name="age" />
+    </bean>
+
+    <!--3.特殊值处理-->
+    <bean id="studentFour" class="com.atguigu.www.pojo.Student">
+        <!--
+    property：通过成员变量的set方法进行赋值，所以该DI是set注入
+    name：设置需要赋值的属性名（和set方法有关）
+    value：设置为属性所赋的值
+        -->
+        <property name="SId" value="1"/>
+        <property name="SName" >
+            <value>
+                <![CDATA[
+                a<b            <!--CDTA区：原样输出内容-->
+            ]]>
+            </value>
+        </property>
+        <property name="age"    value="22"/>
+        <property name="gender" >
+            <null/><!--赋值为null-->
+        </property>
+        <property name="score" value="23.5"/>
+    </bean>
+
+    <!--4.为类属性赋值-->
+    <bean id="studentFive" class="com.atguigu.www.pojo.Student">
+        <constructor-arg value="2"/>
+        <constructor-arg value="lisi"/>
+        <constructor-arg value="男"/>
+        <constructor-arg value="23" />
+        <constructor-arg value="23" name="age" />
+        <constructor-arg ref="clazzOne"/>
+    </bean>
+    <bean id="clazzOne" class="com.atguigu.www.pojo.Clazz">
+        <property name="clazzId" value="001"/>
+        <property name="clazzName" value="火箭班"/>
+    </bean>
+
+    <!--5.内部bean赋值-->
+    <bean id="studentSix" class="com.atguigu.www.pojo.Student">
+        <property name="SId" value="1004"></property>
+        <property name="SName" value="赵六"></property>
+        <property name="age" value="26"></property>
+        <property name="gender" value="女"></property>
+        <property name="clazz">
+            <!-- 在一个bean中再声明一个bean就是内部bean -->
+            <!-- 内部bean只能用于给属性赋值，不能在外部通过IOC容器获取，因此可以省略id属性  -->
+            <bean id="clazzInner" class="com.atguigu.www.pojo.Clazz">
+                <property name="clazzId" value="2222"></property>
+                <property name="clazzName" value="远大前程班"></property>
+            </bean>
+        </property>
+    </bean>
+
+    <!--6.级联属性赋值，级联即类似对象的方式赋值-->
+    <bean id="studentSeven" class="com.atguigu.www.pojo.Student">
+        <property name="SId" value="1004"></property>
+        <property name="SName" value="赵六"></property>
+        <property name="age" value="26"></property>
+        <property name="gender" value="女"></property>
+        <property name="clazz" ref="clazzOne"> </property>
+        <property name="clazz.clazzId" value="3333"></property>
+        <property name="clazz.clazzName" value="最强王者班"></property>
+    </bean>
+
+    <!--7.为数组属性赋值-->
+    <bean id="studentEigh" class="com.atguigu.www.pojo.Student">
+        <property name="SId" value="1005"></property>
+        <property name="SName" value="王八"></property>
+        <property name="age" value="26"></property>
+        <property name="gender" value="女"></property>
+        <!-- ref属性：引用IOC容器中某个bean的id，将所对应的bean为属性赋值 -->
+        <property name="clazz" ref="clazzOne"></property>
+        <property name="hobbies">
+            <array>
+                <value>抽烟</value>
+                <value>喝酒</value>
+                <value>烫头</value>
+            </array>
+        </property>
+    </bean>
+
+    <!--8.为集合类型属性赋值-->
+    <bean id="clazzNigh" class="com.atguigu.www.pojo.Clazz">
+        <property name="clazzId" value="4444"></property>
+        <property name="clazzName" value="Javaee0222"></property>
+        <property name="students">
+            <!--若为Set集合类型属性赋值，只需要将其中的list标签改为set标签即可，map标签同理-->
+            <!--<map></map>-->
+            <list>
+                <ref bean="studentOne"></ref>
+                <ref bean="studentTwo"></ref>
+                <ref bean="studentThree"></ref>
+            </list>
+        </property>
+    </bean>
+
+    <bean id="studentNigh" class="com.atguigu.www.pojo.Student">
+        <property name="SId" value="1009"/>
+        <property name="SName" value="刘雪"/>
+        <property name="gender" value="女"/>
+        <property name="age" value="23"/>
+        <property name="score" value="23.4"/>
+        <property name="clazz" ref="clazzNigh"/>
+        <property name="hobbies">
+            <array>
+                <value>看书</value>
+                <value>画画</value>
+                <value>篮球</value>
+            </array>
+        </property>
+        <!--<property name="teacherMap" ref="teacherMap">-->
+        <property name="teacherMap">
+            <map>
+                <entry key="10001" value-ref="teacherOne"></entry>
+                <entry key="10002" value-ref="teacherTwo"></entry>
+            </map>
+        </property>
+    </bean>
+
+    <!--老师的bean-->
+    <bean id="teacherOne" class="com.atguigu.www.pojo.Teacher">
+        <constructor-arg value="10001"/>
+        <constructor-arg value="李老师"/>
+    </bean>
+
+    <bean id="teacherTwo" class="com.atguigu.www.pojo.Teacher">
+        <constructor-arg value="10002"/>
+        <constructor-arg value="王老师"/>
+    </bean>
+    <!--9.使用util:list、util:map标签必须引入相应的命名空间-->
+    <bean id="clazzTen" class="com.atguigu.www.pojo.Clazz">
+        <property name="clazzId" value="4444"></property>
+        <property name="clazzName" value="Javaee0222"></property>
+        <!-- bean的依赖注入是给管理类中的属性赋值，如Student类，是给age，name等属性赋值；这里目的是存储List数据，而非给List中的属性赋值，所以用bean直接管理没有意义，需要用Util-->
+        <property name="students" ref="studentList"/>
+    </bean>
+    <!--会添加util约束，map标签同理-->
+    <util:list id="studentList">
+        <ref bean="studentTwo"/>
+        <ref bean="studentThree"/>
+        <ref bean="studentFour"/>
+    </util:list>
+
+    <util:map id="teacherMap">
+            <entry key="10001" value-ref="teacherOne"></entry>
+            <entry key="10002" value-ref="teacherTwo"></entry>
+    </util:map>
+
 </beans>

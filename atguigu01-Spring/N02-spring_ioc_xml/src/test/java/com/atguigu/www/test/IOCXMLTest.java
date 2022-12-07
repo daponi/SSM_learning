@@ -43,4 +43,42 @@ public class IOCXMLTest {
         Person person = ioc.getBean(Person.class);
         System.out.println(person);
     }
+
+    /**
+     * 依赖注入之setter注入
+     */
+    @Test
+    public void testDIBySet(){
+        // 1.获取IOC容器
+        ApplicationContext applicationContext = new ClassPathXmlApplicationContext("spring-ioc.xml");
+        // 2.获取Bean
+        Student studentOne = applicationContext.getBean("studentOne", Student.class);
+        log.debug("{}",studentOne);
+    }
+
+    /**
+     * 依赖注入之构造器注入
+     */
+    @Test
+    public void testDIByConstructor(){
+        // 1.获取IOC容器
+        ApplicationContext applicationContext = new ClassPathXmlApplicationContext("spring-ioc.xml");
+        // 2.获取Bean
+        Student studentOne = applicationContext.getBean("studentThree", Student.class);
+        log.debug("{}",studentOne);
+
+        Student studentOne2 = applicationContext.getBean("studentFive", Student.class);
+        log.debug("{}",studentOne2);
+    }
+
+    /**
+     * 测试
+     */
+    @Test
+    public void testDI(){
+        ApplicationContext applicationContext = new ClassPathXmlApplicationContext("spring-ioc.xml");
+        Student studentEigh = applicationContext.getBean("studentNigh",Student.class);
+        log.debug(studentEigh.toString());
+
+    }
 }
