@@ -3,10 +3,11 @@ package com.atguigu.www.pojo;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
+import lombok.Setter;
 
 import java.util.Map;
 
-@Data
+@Setter
 @AllArgsConstructor
 @NoArgsConstructor
 public class Student implements Person{

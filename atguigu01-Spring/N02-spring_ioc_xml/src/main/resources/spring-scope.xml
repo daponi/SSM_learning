@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+    <!--
+    scope：设置bean的作用域
+    scope="singleton|prototype"
+    singleton（单例）：表示获取该bean所对应的对象都是同一个
+    prototype（多例）：表示获取该bean所对应的对象都不是同一个
+    -->
+    <bean id="student" class="com.atguigu.www.pojo.Student" >
+        <property name="SId" value="001"/>
+        <property name="SName" value="zhangsan"/>
+    </bean>
+</beans>
