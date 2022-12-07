@@ -11,6 +11,7 @@
     <modules>
         <module>N01-spring-helloworld</module>
         <module>N02-spring_ioc_xml</module>
+        <module>N03-spring_ioc_annotation</module>
     </modules>
 
     <properties>

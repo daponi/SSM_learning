@@ -9,6 +9,7 @@
         <outputRelativeToContentRoot value="true" />
         <module name="N04-dynamicSQL" />
         <module name="N02-parameter" />
+        <module name="N03-spring_ioc_annotation" />
         <module name="N01-helloworld" />
         <module name="N06-myBatisGenerator" />
         <module name="N02-spring_ioc_xml" />
