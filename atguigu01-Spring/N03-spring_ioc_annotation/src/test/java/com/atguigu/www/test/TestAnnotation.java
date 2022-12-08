@@ -19,7 +19,7 @@ import org.springframework.context.support.ClassPathXmlApplicationContext;
  * 可以通过标识组件的注解的value属性值设置bean的自定义的id
  *
  * @Autowired:实现自动装配功能的注解
- * 1、@Autowired注解能够标识的位置
+ * 1、@Autowired注解能够标识的位置(下面三点只需要满注意一点就能对成员变量实现自动装配):
  * a>标识在成员变量上，此时不需要设置成员变量的set方法
  * b>标识在set方法上
  * c>标识在为当前成员变量赋值的有参构造上
@@ -49,5 +49,18 @@ public class TestAnnotation {
         System.out.println(controller);
         System.out.println(service);
         System.out.println(dao);
+    }
+
+
+    @Test
+    public void testAnnotationTwo(){
+        ApplicationContext applicationContext=new ClassPathXmlApplicationContext("spring-ioc-annotation.xml");
+        UserController controller = (UserController) applicationContext.getBean("userController");//默认通过byType
+        // UserService service = applicationContext.getBean("userServiceImpl",UserService.class);
+        // UserDao dao = applicationContext.getBean(UserDao.class);
+        System.out.println(controller);
+        controller.saveUser();
+        // System.out.println(service);
+        // System.out.println(dao);
     }
 }

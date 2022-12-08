@@ -4,5 +4,22 @@
        xmlns:context="http://www.springframework.org/schema/context"
        xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd http://www.springframework.org/schema/context https://www.springframework.org/schema/context/spring-context.xsd">
 
-    <context:component-scan base-package="com.atguigu.www.controller,com.atguigu.www.service,com.atguigu.www.dao"/>
+    <!--<context:component-scan base-package="com.atguigu.www.controller,com.atguigu.www.service,com.atguigu.www.dao"/>-->
+
+    <context:component-scan base-package="com.atguigu" use-default-filters="true">
+        <!-- context:include-filter标签：指定在原有扫描规则的基础上追加的规则 -->
+        <!-- use-default-filters属性：取值false表示关闭默认扫描规则 -->
+        <!-- 此时必须设置use-default-filters="false"，因为默认规则即扫描指定包下所有类  -->
+        <!--
+        type：设置排除或包含的依据
+        type="annotation"，根据注解排除，expression中设置要排除的注解的全类名 type="assignable"，根据类型排除，expression中设置要排除的类型的全类名
+        -->
+        <!--<context:exclude-filter type="annotation" expression="org.springframework.stereotype.Controller"/>-->
+        <!--<context:include-filter type="annotation" expression="org.springframework.stereotype.Controller"/>-->
+        <!--<context:include-filter type="assignable" expression="com.atguigu.www.controller.UserController"/>-->
+    </context:component-scan>
+
+    <!--<bean id="userService2" class="com.atguigu.www.service.impl.UserServiceImpl" />-->
+    <!--<bean id="userService3" class="com.atguigu.www.service.impl.UserServiceImpl" />-->
+
 </beans>
