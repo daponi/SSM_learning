@@ -13,6 +13,7 @@
         <module>N02-spring_ioc_xml</module>
         <module>N03-spring_ioc_annotation</module>
         <module>N04-spring-proxy</module>
+        <module>N06-spring_aop_annotation</module>
     </modules>
 
     <properties>

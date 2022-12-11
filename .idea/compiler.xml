@@ -14,6 +14,7 @@
         <module name="N01-helloworld" />
         <module name="N06-myBatisGenerator" />
         <module name="N02-spring_ioc_xml" />
+        <module name="N06-spring_aop_annotation" />
         <module name="N01-spring-helloworld" />
         <module name="N03-resultMap" />
         <module name="N05-cache" />
