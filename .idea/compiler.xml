@@ -10,6 +10,7 @@
         <module name="N04-dynamicSQL" />
         <module name="N04-spring-proxy" />
         <module name="N02-parameter" />
+        <module name="N05-spring_aop_xml" />
         <module name="N03-spring_ioc_annotation" />
         <module name="N01-helloworld" />
         <module name="N06-myBatisGenerator" />
