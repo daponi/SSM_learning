@@ -15,6 +15,7 @@
         <module>N04-spring-proxy</module>
         <module>N06-spring_aop_annotation</module>
         <module>N05-spring_aop_xml</module>
+        <module>N07-spring_transaction</module>
     </modules>
 
     <properties>

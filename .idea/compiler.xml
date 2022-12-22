@@ -8,17 +8,18 @@
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
         <module name="N04-dynamicSQL" />
-        <module name="N04-spring-proxy" />
         <module name="N02-parameter" />
-        <module name="N05-spring_aop_xml" />
         <module name="N03-spring_ioc_annotation" />
         <module name="N01-helloworld" />
         <module name="N06-myBatisGenerator" />
-        <module name="N02-spring_ioc_xml" />
+        <module name="N07-spring_transaction" />
         <module name="N06-spring_aop_annotation" />
+        <module name="N05-cache" />
+        <module name="N04-spring-proxy" />
+        <module name="N05-spring_aop_xml" />
+        <module name="N02-spring_ioc_xml" />
         <module name="N01-spring-helloworld" />
         <module name="N03-resultMap" />
-        <module name="N05-cache" />
       </profile>
     </annotationProcessing>
   </component>
