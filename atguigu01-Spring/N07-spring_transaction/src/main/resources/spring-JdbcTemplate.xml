@@ -6,6 +6,10 @@
 
     <context:property-placeholder location="jdbc.properties"/>
 
+    <!--扫描包进IOC容器-->
+    <context:component-scan base-package="com.atguigu.www"/>
+
+    <!--连接数据库-->
     <bean class="com.alibaba.druid.pool.DruidDataSource" id="dataSource">
         <property name="driverClassName" value="${jdbc.Driver}"/>
         <property name="url" value="${jdbc.url}"/>
@@ -13,6 +17,7 @@
         <property name="password" value="${jdbc.password}"/>
     </bean>
 
+    <!--将JdbcTemplate注册进IOC容器-->
     <bean class="org.springframework.jdbc.core.JdbcTemplate">
         <property name="dataSource" ref="dataSource"/>
     </bean>
