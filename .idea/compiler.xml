@@ -19,6 +19,7 @@
         <module name="N05-spring_aop_xml" />
         <module name="N02-spring_ioc_xml" />
         <module name="N01-spring-helloworld" />
+        <module name="N01-springMVC-helloworld" />
         <module name="N03-resultMap" />
       </profile>
     </annotationProcessing>
