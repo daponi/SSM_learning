@@ -10,6 +10,7 @@
     <version>1.0-SNAPSHOT</version>
     <modules>
         <module>N01-springMVC-helloworld</module>
+        <module>N02-demo</module>
     </modules>
 
     <properties>
