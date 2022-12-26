@@ -54,6 +54,11 @@ import org.springframework.web.bind.annotation.RequestMethod;
 @RequestMapping("/")
 public class TestRequestMappingController {
 
+    @RequestMapping("/")
+    public String index(){
+        return "index";
+    }
+
     //此时控制器方法所匹配的请求的请求路径为/test/hello
     @RequestMapping(
             value = {"/hello","/abc"},
