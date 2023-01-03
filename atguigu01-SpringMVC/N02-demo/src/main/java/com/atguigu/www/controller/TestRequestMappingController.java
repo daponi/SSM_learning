@@ -51,13 +51,14 @@ import org.springframework.web.bind.annotation.RequestMethod;
 
 
 @Controller
-@RequestMapping("/")
 public class TestRequestMappingController {
 
+/*
+  // 使用视图控制器view-controller来实现
     @RequestMapping("/")
     public String index(){
         return "index";
-    }
+    }*/
 
     //此时控制器方法所匹配的请求的请求路径为/test/hello
     @RequestMapping(
