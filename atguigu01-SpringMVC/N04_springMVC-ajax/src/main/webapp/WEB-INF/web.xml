@@ -4,7 +4,7 @@
          xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee http://xmlns.jcp.org/xml/ns/javaee/web-app_4_0.xsd"
          version="4.0">
 
-    <!--设置Spring的编码过滤器-->
+    <!--设置spring的编码过滤器-->
     <filter>
         <filter-name>characterEncodingFilter</filter-name>
         <filter-class>org.springframework.web.filter.CharacterEncodingFilter</filter-class>
@@ -22,7 +22,7 @@
         <url-pattern>/*</url-pattern>
     </filter-mapping>
 
-    <!--设置处理请求方式的过滤器-->
+    <!--设置spring处理请求方式的过滤器-->
     <filter>
         <filter-name>hiddenHttpMethodFilter</filter-name>
         <filter-class>org.springframework.web.filter.HiddenHttpMethodFilter</filter-class>
@@ -32,19 +32,18 @@
         <url-pattern>/*</url-pattern>
     </filter-mapping>
 
-    <!--设置SpringMVC的前端控制器-->
+    <!--配置SpringMVC的前端控制器-->
     <servlet>
-        <servlet-name>springMvc</servlet-name>
+        <servlet-name>dispatcherServlet</servlet-name>
         <servlet-class>org.springframework.web.servlet.DispatcherServlet</servlet-class>
         <init-param>
             <param-name>contextConfigLocation</param-name>
             <param-value>classpath:springMVC.xml</param-value>
         </init-param>
-        <!--将前端控制器的初始化时间设置到服务器启动时-->
-        <load-on-startup>1</load-on-startup>
     </servlet>
     <servlet-mapping>
-        <servlet-name>springMvc</servlet-name>
+        <servlet-name>dispatcherServlet</servlet-name>
         <url-pattern>/</url-pattern>
     </servlet-mapping>
+
 </web-app>

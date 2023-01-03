@@ -12,6 +12,7 @@
         <module>N01-springMVC-helloworld</module>
         <module>N02-demo</module>
         <module>N03_springMVC_restful</module>
+        <module>N04_springMVC-ajax</module>
     </modules>
 
     <properties>

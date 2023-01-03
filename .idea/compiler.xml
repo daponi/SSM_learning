@@ -17,6 +17,7 @@
         <module name="N06-spring_aop_annotation" />
         <module name="N05-cache" />
         <module name="N04-spring-proxy" />
+        <module name="N04_springMVC-ajax" />
         <module name="N05-spring_aop_xml" />
         <module name="N02-spring_ioc_xml" />
         <module name="N01-spring-helloworld" />
