@@ -25,9 +25,15 @@
 <form th:action="@{/param}" method="post">
     用户名：<input type="text" name="username"><br>
     密码：  <input type="password" name="password"><br>
-    <input type="submit" value="登录"><br>
-</form
+    <input type="submit" value="登录进param"><br>
+</form>
 <hr>
+</br>
+<form th:action="@{/param/pojo}" method="post">
+    用户名：<input type="text" name="username"><br>
+    密码：  <input type="password" name="password"><br>
+    <input type="submit" value="登录进pojo"><br>
+</form>
 <a th:href="@{/test/mav}">测试通过ModelAndView向请求域共享数据</a><br>
 <a th:href="@{/test/model}">测试通过Model向请求域共享数据</a><br>
 <a th:href="@{/test/modelMap}">测试通过ModelMap向请求域共享数据</a><br>

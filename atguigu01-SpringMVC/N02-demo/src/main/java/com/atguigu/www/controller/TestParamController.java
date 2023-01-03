@@ -2,10 +2,14 @@ package com.atguigu.www.controller;
 
 import com.atguigu.www.pojo.User;
 import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.CookieValue;
+import org.springframework.web.bind.annotation.RequestHeader;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
+import javax.servlet.http.Cookie;
 import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpSession;
 
 /**
  * Date:2022/7/7
@@ -39,6 +43,7 @@ public class TestParamController {
 
     @RequestMapping("/param/servletAPI")
     public String getParamByServletAPI(HttpServletRequest request){
+        HttpSession session = request.getSession(); //访问并响应后，服务器才会向浏览器创建一个JSession
         String username = request.getParameter("username");
         String password = request.getParameter("password");
         System.out.println("=====username:"+username+"\t password:"+password);
@@ -46,8 +51,11 @@ public class TestParamController {
     }
 
     @RequestMapping("/param")
-    public String getParam(String username,String password){
+    public String getParam(String username, String password, @RequestHeader("referer") String referer, @CookieValue("JSESSIONID")String jsession){
+        System.out.println("====refer："+referer);
+        System.out.println("=====JSSESSION: "+jsession);
         System.out.println("=====username:"+username+"\t password:"+password);
+
         return "success";
     }
 
