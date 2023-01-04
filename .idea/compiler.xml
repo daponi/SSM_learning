@@ -16,9 +16,11 @@
         <module name="N07-spring_transaction" />
         <module name="N06-spring_aop_annotation" />
         <module name="N06_springMVC-annotation" />
+        <module name="N01-SSM_listener" />
         <module name="N05-cache" />
         <module name="N04-spring-proxy" />
         <module name="N04_springMVC-ajax" />
+        <module name="N02-SSM_01" />
         <module name="N05-spring_aop_xml" />
         <module name="N05_springMVC-Interceptor" />
         <module name="N02-spring_ioc_xml" />
@@ -28,5 +30,8 @@
         <module name="N03-resultMap" />
       </profile>
     </annotationProcessing>
+    <bytecodeTargetLevel>
+      <module name="SSM_listener" target="1.8" />
+    </bytecodeTargetLevel>
   </component>
 </project>

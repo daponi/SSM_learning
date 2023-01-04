@@ -8,6 +8,8 @@
     <file type="web" url="file://$PROJECT_DIR$/atguigu01-SpringMVC/N04_springMVC-ajax" />
     <file type="web" url="file://$PROJECT_DIR$/atguigu01-SpringMVC/N05_springMVC-Interceptor" />
     <file type="web" url="file://$PROJECT_DIR$/atguigu01-SpringMVC/N06_springMVC-annotation" />
+    <file type="web" url="file://$PROJECT_DIR$/atguigu01-SSM/N01-SSM_listener" />
+    <file type="web" url="file://$PROJECT_DIR$/atguigu01-SSM/N02-SSM_01" />
   </component>
   <component name="MavenProjectsManager">
     <option name="originalFiles">
@@ -16,6 +18,7 @@
         <option value="$PROJECT_DIR$/atguigu01-mybatis/N01-helloworld/pom.xml" />
         <option value="$PROJECT_DIR$/atguigu01-Spring/pom.xml" />
         <option value="$PROJECT_DIR$/atguigu01-SpringMVC/pom.xml" />
+        <option value="$PROJECT_DIR$/atguigu01-SSM/pom.xml" />
       </list>
     </option>
   </component>
