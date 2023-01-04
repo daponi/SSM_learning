@@ -14,6 +14,7 @@
         <module>N03_springMVC_restful</module>
         <module>N04_springMVC-ajax</module>
         <module>N05_springMVC-Interceptor</module>
+        <module>N06_springMVC-annotation</module>
     </modules>
 
     <properties>

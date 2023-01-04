@@ -15,6 +15,7 @@
         <module name="N06-myBatisGenerator" />
         <module name="N07-spring_transaction" />
         <module name="N06-spring_aop_annotation" />
+        <module name="N06_springMVC-annotation" />
         <module name="N05-cache" />
         <module name="N04-spring-proxy" />
         <module name="N04_springMVC-ajax" />

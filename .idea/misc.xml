@@ -7,6 +7,7 @@
     <file type="web" url="file://$PROJECT_DIR$/atguigu01-SpringMVC/N03_springMVC_restful" />
     <file type="web" url="file://$PROJECT_DIR$/atguigu01-SpringMVC/N04_springMVC-ajax" />
     <file type="web" url="file://$PROJECT_DIR$/atguigu01-SpringMVC/N05_springMVC-Interceptor" />
+    <file type="web" url="file://$PROJECT_DIR$/atguigu01-SpringMVC/N06_springMVC-annotation" />
   </component>
   <component name="MavenProjectsManager">
     <option name="originalFiles">
