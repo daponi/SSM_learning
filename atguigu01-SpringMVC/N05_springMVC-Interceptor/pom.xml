@@ -9,13 +9,15 @@
     </parent>
     <modelVersion>4.0.0</modelVersion>
 
-    <artifactId>N04_springMVC-ajax</artifactId>
+    <artifactId>N05_springMVC-Interceptor</artifactId>
 
     <properties>
         <maven.compiler.source>8</maven.compiler.source>
         <maven.compiler.target>8</maven.compiler.target>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
     </properties>
+
+
     <!--web工程，打包方式设置为war-->
     <packaging>war</packaging>
 

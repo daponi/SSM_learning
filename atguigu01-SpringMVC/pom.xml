@@ -13,6 +13,7 @@
         <module>N02-demo</module>
         <module>N03_springMVC_restful</module>
         <module>N04_springMVC-ajax</module>
+        <module>N05_springMVC-Interceptor</module>
     </modules>
 
     <properties>
