@@ -39,7 +39,7 @@ public class MyBatisTest {
 
         //5.获取userMapper的代理实现类对象，通过代理模式创建UserMapper接口的代理实现类对象
         /**
-         * sqlSession.getMapper()传进一个，class对象，返回该class的实例化对象。
+         * sqlSession.getMapper()传进一个class对象，返回该class的实例化对象。
          * 如，传User.clss，返回的是该User类的对象
          * 而传入一个接口的class，则会通过代理实现类实现该接口再返回其实例化对象，使用了代理模式
          * 是通过该接口根据命名规范找到其映射文件xxxMapper.xml，在映射文件里找到映射语句，并将结果返回
@@ -50,7 +50,7 @@ public class MyBatisTest {
         //调用UserMapper接口中的方法，就可以根据UserMapper的全类名匹配元素文件，通过调用的方法名匹配映射文件中的SQL标签，并执行标签中的SQL语句
         int result = mapper.insertUser();
         //也可以直接使用sqlSession直接执行Mapper文件
-        int insert = sqlSession.insert("com.atguigu.www.mapper.UserMapper.insertUser");
+        //int insert = sqlSession.insert("com.atguigu.www.mapper.UserMapper.insertUser");
 
         log.debug("结果：{}",result);
 

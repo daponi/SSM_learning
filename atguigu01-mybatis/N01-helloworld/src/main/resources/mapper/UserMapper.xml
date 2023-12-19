@@ -49,7 +49,7 @@
 
     <insert id="insertUser">
         insert into t_user
-        values (null,'ONE','123123','23','男','1239123@QQ.COM')
+        values (null,'Three','123123','23','男','1239123@QQ.COM')
     </insert>
 
 
