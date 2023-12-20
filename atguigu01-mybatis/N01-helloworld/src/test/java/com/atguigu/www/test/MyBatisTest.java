@@ -52,7 +52,7 @@ public class MyBatisTest {
         //也可以直接使用sqlSession直接执行Mapper文件
         //int insert = sqlSession.insert("com.atguigu.www.mapper.UserMapper.insertUser");
 
-        log.debug("结果：{}",result);
+        log.debug("结果：{}", result);
 
         //6.提交事务
         sqlSession.commit();
@@ -63,29 +63,28 @@ public class MyBatisTest {
     }
 
 
-
     @Test
-    public void testDelete(){
+    public void testDelete() {
 
         SqlSession sqlSession = SqlSessionUtil.getSqlSession();
         UserMapper mapper = sqlSession.getMapper(UserMapper.class);
         int result = mapper.deleteUser();
-        log.debug("结果:{}",result);
+        log.debug("结果:{}", result);
         sqlSession.close();
     }
 
     @Test
-    public void testUpdate(){
+    public void testUpdate() {
 
         SqlSession sqlSession = SqlSessionUtil.getSqlSession();
         UserMapper mapper = sqlSession.getMapper(UserMapper.class);
         int result = mapper.updateUser();
-        log.debug("结果:{}",result);
+        log.debug("结果:{}", result);
         sqlSession.close();
     }
 
     @Test
-    public void testGetOneUser(){
+    public void testGetOneUser() {
         SqlSession sqlSession = SqlSessionUtil.getSqlSession();
         UserMapper mapper = sqlSession.getMapper(UserMapper.class);
         User oneUser = mapper.getOneUser();
@@ -93,11 +92,11 @@ public class MyBatisTest {
     }
 
     @Test
-    public void testGetAllUser(){
+    public void testGetAllUser() {
         SqlSession sqlSession = SqlSessionUtil.getSqlSession();
         UserMapper mapper = sqlSession.getMapper(UserMapper.class);
         List<User> allUser = mapper.getAllUser();
-        allUser.forEach(user->log.debug("{}",user));
+        allUser.forEach(user -> log.debug("{}", user));
     }
 
 }
