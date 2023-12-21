@@ -52,4 +52,11 @@ public class DynamicSQLMapperTest {
         int result = mapper.deleteEmpBatch(ids);
         log.debug("{}",result);
     }
+
+    @Test
+    public void testGetEmpByConditionThree(){
+        List<Emp> empList = mapper.getEmpByConditionThree(new Emp(null, "AAA", 24, "女"));
+        empList.forEach(ele->{log.debug("{}",ele);});
+    }
+
 }

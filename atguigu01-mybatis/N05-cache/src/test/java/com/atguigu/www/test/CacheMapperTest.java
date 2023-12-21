@@ -54,6 +54,21 @@ public class CacheMapperTest {
         sqlSession.close();
     }
 
+
+    /**
+     * mybatis一级缓存存在
+     * 日志只输出了一次sql语句即只进行了一次查询，且hashCode一样即使用的是同一个都对象
+     */
+    @Test
+    public void testHaveGetEmpById(){
+        Emp emp = mapper.getEmpById(20);
+        Emp emp2 = mapper.getEmpById(20);
+        log.debug("输出1: code ---{}，对象:{}",emp.hashCode(),emp);
+        //mapper.inertEmp(new Emp(null,"红",22,"男",null));
+        log.debug("输出2： code ---{}，对象:{}",emp2.hashCode(),emp2);
+
+    }
+
     /**
      * mybatis一级缓存失效SqlSession
      */
@@ -61,9 +76,9 @@ public class CacheMapperTest {
     public void testGetEmpById(){
         Emp emp = mapper.getEmpById(20);
         Emp emp2 = mapper.getEmpById(20);
-        log.debug("输出1：{}",emp);
+        log.debug("输出1: code ---{}，对象:{}",emp.hashCode(),emp);
         mapper.inertEmp(new Emp(null,"红",22,"男",null));
-        log.debug("输出2：{}",emp2);
+        log.debug("输出2：code ---{}，对象:{}",emp2.hashCode(),emp2);
         SqlSession sqlSession1 = SqlSessionUtil.getSqlSession();
         CacheMapper mapper2 = sqlSession1.getMapper(CacheMapper.class);
         // sqlSession1.clearCache();// 手动清除缓存
@@ -72,18 +87,41 @@ public class CacheMapperTest {
     }
 
     /**
-     * 测试二级缓存SqlSessionFactory
+     * 测试二级缓存SqlSessionFactory的存在
+     */
+    @Test
+    public void testHaveGetEmpByIdTwo() throws IOException {
+        InputStream inputStream = Resources.getResourceAsStream("mybatis-config.xml");
+        SqlSessionFactory factory = new SqlSessionFactoryBuilder().build(inputStream);
+        SqlSession session1 = factory.openSession(true); //自动commit
+        CacheMapper mapper1 = session1.getMapper(CacheMapper.class);
+        Emp emp1 = mapper1.getEmpById(2);
+        log.debug("输出1：code ---{}，对象:{}",emp1.hashCode(),emp1);
+        session1.close();
+
+        SqlSession session2 = factory.openSession(true); //自动commit
+        CacheMapper mapper2 = session2.getMapper(CacheMapper.class);
+        Emp emp2 = mapper2.getEmpById(2);
+        log.debug("输出2：：code ---{}，对象:{}",emp2.hashCode(),emp2);
+        session2.close();
+    }
+
+    /**
+     * 测试二级缓存SqlSessionFactory失效
      */
     @Test
     public void testGetEmpByIdTwo() throws IOException {
         InputStream inputStream = Resources.getResourceAsStream("mybatis-config.xml");
         SqlSessionFactory factory = new SqlSessionFactoryBuilder().build(inputStream);
         SqlSession session1 = factory.openSession(true);
-        SqlSession session2 = factory.openSession(true);
         CacheMapper mapper1 = session1.getMapper(CacheMapper.class);
-        CacheMapper mapper2 = session2.getMapper(CacheMapper.class);
-        log.debug("输出1：{}",mapper1.getEmpById(24));
+        Emp emp1 = mapper1.getEmpById(2);
+        log.debug("输出1：code ---{}，对象:{}",emp1.hashCode(),emp1);
         session1.close();
-        log.debug("输出2：{}",mapper2.getEmpById(24));
+
+        SqlSession session2 = factory.openSession(true);
+        CacheMapper mapper2 = session2.getMapper(CacheMapper.class);
+        Emp emp2 = mapper2.getEmpById(2);
+        log.debug("输出2：：code ---{}，对象:{}",emp2.hashCode(),emp2);
     }
 }

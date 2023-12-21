@@ -29,6 +29,7 @@ public interface DynamicSQLMapper {
      */
     int deleteEmpBatch(@Param("empIds") Integer[] empIds);
 
+    List<Emp> getEmpByConditionThree(Emp emp);
 }
 
 
